@@ -1,0 +1,175 @@
+<!Doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>My Portfolio</title>
+</head>
+<body class="bg-white text-black">
+    <nav>
+        <ul>
+            <li><a href="#home" onclick="scrollToSection('home')">Home</a></li>
+            <li><a href="#about" onclick="scrollToSection('about')">About Me</a></li>
+            <li><a href="#skills" onclick="scrollToSection('skills')">Skills</a></li>
+            <li><a href="#services" onclick="scrollToSection('services')">Services</a></li>
+            <li><a href="#hire-me" onclick="scrollToSection('hire-me')">Hire Me</a></li>
+        </ul>
+    </nav>
+    <main>
+        <section id="home">
+            <div class="text-content">
+                <h1 class="text-4xl font-bold">Hi! I'm Jessa Mae</h1>
+                <p>a web developer with a passion for creating stunning, functional websites. My expertise lies in building responsive and interactive web experiences that are not only visually appealing but also easy to navigate. From modern front-end design to smooth animations, I bring ideas to life with clean code and innovative solutions. Explore my work and see how I can help turn your vision into a digital reality.</p>
+            
+        </div>
+        <img src="images/picni.png" alt="Profile pic" class="Profile">
+
+        </section>
+    
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="about-content">
+            <h1 class="heading">Jessa Mae<br>Florita</h1>
+            <img src="images/jezz.png" alt="image" class="IMG">
+            <div class="card-container">
+                <div class="content-card">
+                    <p>
+                        I am currently a 4th year BSIT student at Caraga State University Main campus.
+                        <br>23 years of age, I'm from Lingayao Las Nieves, Agusan del Norte.
+                        <br>I am also a student athlete before.
+                        <br>I like Watching videos or movies and scrolling in tiktok.
+                        <br>I'm a quiet and introspective person who values deep connections over large social circles. I may not have a big group of friends, but I have a few trusted individuals I can turn to when needed. While I prefer to keep to myself and don't often join in on group hangouts or bonding activities, I cherish the meaningful interactions I have with those close to me.
+                        <br>Everything happens for a reason "maong laban lang".
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <div class="skills-container">
+            <h2 class="skills-heading text-4xl font-bold">Skills</h2>
+            <ul class="skills-list">
+                <li>UI/UX Design</li>
+                <li>Problem Solving</li>
+                <li>HTML, CSS, JS</li>
+            </ul>
+            <div class="skills-images">
+                <img src="images/Ui,ux design.jfif" alt="UI/UX Design" class="skills-image">
+                <img src="images/PROBLEM SOLVING.jpg" alt="Problem Solving" class="skills-image">
+                <img src="images/HTML, CSS, JS.png" alt="HTML, CSS, JS" class="skills-image">
+            </div>
+            
+            <div class="skills-certificates-container">
+                <div class="surprise-box" id="surpriseBox">View my Certificates!</div>
+                <div class="skills-certificates hidden" id="certificatesContainer">
+                  <img src="images/jessaHTML.jfif" alt="HTML" class="certificates">
+                  <img src="images/jessaCSS.jfif" alt="CSS" class="certificates">
+                  <img src="images/jessaJS.jfif" alt="CSS" class="certificates">
+                </div>
+            </div>
+              
+        </div>
+    </section>
+    
+
+    <!-- Services Section -->
+    <section id="services">
+        <h2>Services</h2> 
+        <div class="services-container">
+            <div class="service-card">
+                <h3>Front-end Design</h3>
+                <p>Design and develop responsive, user-friendly interfaces.</p>
+            </div>
+            <div class="service-card">
+                <h3>Documentation</h3>
+                <p>Well-organized, easy-to-follow technical documentation.</p>
+            </div>
+            <div class="service-card">
+                <h3>System Checking</h3>
+                <p>Comprehensive system checks to ensure efficiency and reliability.</p>
+            </div>
+        </div>
+    </section>
+    
+
+    <!-- Hire Me Section -->
+    <section id="hire-me">
+        <h2>Hire Me</h2>
+        <p>If you're interested in working with me, please don't hesitate to contact me!<br> Please click the icons</p>
+        <div class="contact-icons">
+            <a href="mailto:floritajessamae@gmail.com" target="_blank">
+                <img src="images/gmail-icon.png" alt="Gmail Icon">
+            </a>
+            <a href="https://www.instagram.com/sammae_f" target="_blank">
+                <img src="images/ig-icon.png" alt="Instagram Icon">
+            </a>
+            <a href="https://www.facebook.com/jessamae.florita.7" target="_blank">
+                <img src="images/fb-icon.png" alt="Facebook Icon">
+            </a>
+        </div>
+    </section>
+    
+    
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+          // Select the image and the section you want to observe
+          const profileImage = document.querySelector('.Profile');
+          const homeSection = document.querySelector('#home');
+      
+          // Create an IntersectionObserver
+          const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                // When the "home" section is visible, add the animation class
+                profileImage.classList.add('float-up');
+              } else {
+                // Optionally, remove the class when it leaves the viewport (if needed)
+                profileImage.classList.remove('float-up');
+              }
+            });
+          }, {
+            threshold: 0.5 // Trigger when 50% of the "home" section is visible
+          });
+      
+          // Start observing the "home" section
+          observer.observe(homeSection);
+        });
+      </script>
+
+      <script>document.addEventListener('DOMContentLoaded', function () {
+        const surpriseBox = document.getElementById('surpriseBox');
+        const certificatesContainer = document.getElementById('certificatesContainer');
+        const certificates = document.querySelectorAll('.certificates');
+      
+        surpriseBox.addEventListener('click', function () {
+          if (certificatesContainer.classList.contains('hidden')) {
+            certificatesContainer.classList.remove('hidden'); // Reveal the container
+      
+            // Trigger the animation for each certificate
+            certificates.forEach((certificate, index) => {
+              setTimeout(() => {
+                certificate.classList.add('show'); // Apply the show class with a delay
+              }, index * 200); // Delay for a staggered effect
+            });
+          } else {
+            certificates.forEach(certificate => {
+              certificate.classList.remove('show'); // Hide the certificates again
+            });
+            setTimeout(() => {
+              certificatesContainer.classList.add('hidden'); // Hide the container after the animation
+            }, 500); // Delay hiding the container for a smooth transition
+          }
+        });
+      });
+      
+    </script>
+      
+</body>
+</html>

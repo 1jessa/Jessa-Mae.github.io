@@ -1,0 +1,626 @@
+/* Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  color: #333;
+  background-color: transparent;
+  line-height: 1.6;
+}
+
+h1, h2, h3 {
+  font-weight: bold;
+}
+
+/* Navigation Bar */
+nav {
+  position: fixed;
+  width: 100%;
+  background-color: gray;
+  font-weight: bold;
+  padding: 5px 0;
+  z-index: 1000; /* Ensures the nav stays on top */
+  display: flex;
+  justify-content: center;  /* Centers the entire navigation list */
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center; /* Centers the list horizontally */
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  margin: 0 20px; /* Space between each link */
+}
+
+nav ul li a {
+  color: whitesmoke;
+  text-decoration: none;
+  font-size: 18px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  text-transform: uppercase;
+}
+
+nav ul li a:hover {
+  color: rgb(96, 209, 120); /* Change color on hover for interaction feedback */
+}
+
+/* Home Section */
+#home {
+  display: flex;
+  background-image: url("images/jesback.avif");
+  background-repeat: no-repeat;
+  background-size: cover;
+  align-items: center; /* Aligns items vertically to the center */
+  justify-content: space-between; /* Places the text on the left and image on the right */
+  padding: 20px;
+  height: 100vh; /* Full viewport height */
+}
+
+.text-content {
+  color: rgb(226, 221, 221);
+  max-width: 50%; /* Adjusts the width of the text content */
+}
+
+.text-content h1 {
+  color: rgb(226, 218, 218);
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.text-content p {
+  font-size: 1.2rem;
+  line-height: 1.5;
+  color: rgb(218, 213, 213);
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(50px); /* Start 50px below its original position */
+    opacity: 0; /* Initially transparent */
+  }
+  100% {
+    transform: translateY(0); /* Move to its original position */
+    opacity: 1; /* Fully visible */
+  }
+}
+
+.float-up {
+  animation: floatUp 1.5s ease-out forwards; /* Apply the float-up animation */
+  opacity: 1; /* Start hidden, to fade in with animation */
+}
+
+.Profile {
+  width: 30%; /* Adjusts the width of the image */
+  height: 400px;
+  margin-right: 80px;
+  border: none; /* Removes any border */
+  border-radius: 10px; /* Adds rounded corners */
+  object-fit: cover; /* Ensures the image maintains its aspect ratio */
+  box-shadow: none; /* Removes any shadow */
+  background: transparent; /* Ensures no background color is applied */
+  
+  opacity: 0; /* Start hidden */
+  transition: opacity 0.3s ease-in; /* Smooth transition for opacity */
+}
+
+/* About Section */
+#about {
+  background-image: url("images/jj.png");
+  background-size: cover;
+  display: flex;            /* Align children horizontally */
+  flex-direction: row;      /* Align items in a row */
+  align-items: center;      /* Center items vertically */
+  text-align: center;       /* Center text horizontally */
+  padding: 50px;            /* Add padding around the section */
+  height: 120vh;            /* Full viewport height */
+  position: relative;       /* Position relative for absolute positioning inside */
+}
+
+.heading {
+  position: absolute;       /* Allows positioning relative to parent */
+  top: 30px;                /* Distance from the top */
+  left: 40px;               /* Distance from the left */
+  font-size: 2.5rem;        /* Adjust size as needed */
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  color: rgb(56, 54, 54);    /* Text color */
+  margin: 0;                /* Remove default margin */
+  text-align: left;         /* Align text to the left */
+}
+
+.content-wrapper {
+  display: flex;            /* Align children horizontally */
+  align-items: center;      /* Center items vertically */
+  gap: 10px;                /* Space between the image and the card container */
+}
+
+.IMG {
+  width: 300px;             /* Adjust the size of the image as needed */
+  height: 300px;            /* Maintain aspect ratio */
+  border-radius: 10px;      /* Optional: rounded corners */
+  margin-left: 70px;
+  margin-top: 120px;
+}
+
+.card-container {
+  width: 600px;             /* Adjust the width of the card container */
+  display: flex;
+  flex-direction: column;   /* Stack card content vertically */
+  align-items: flex-start;  /* Align the card container to the start of the flex container */
+  margin-left: 500px;        /* Space between image and card container */
+  margin-bottom: 50px;      /* Space below the card container */
+}
+
+.content-card {
+  background-color: rgb(95, 91, 93); /* Background color of the card */
+  border-radius: 8px;     /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+  padding: 20px;          /* Padding inside the card */
+  margin: 20px;           /* Margin outside the card */
+  max-width: 100%;        /* Ensure the card does not exceed the container's width */
+  text-align: left;       /* Align text to the left */
+}
+
+.content-card p {
+  color: whitesmoke;
+}
+
+/* Skills Section */
+@keyframes snakeLights {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes movingCubes {
+  0% {
+    background-position: left;
+  }
+  100% {
+    background-position: 100% 0;
+  }
+}
+
+#skills {
+  display: flex;
+  color: whitesmoke;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+  min-height: 150vh;
+
+  /* Gradient background to simulate snake lights */
+  background: linear-gradient(90deg, #646362 25%, #424241 50%, #222120 75%);
+  background-size: 200% 100%;
+  animation: snakeLights 5s linear infinite;
+
+  /* Add squares effect */
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+#skills h2 {
+  text-align: center;
+  margin-top: 50px;
+}
+
+#skills::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: repeating-linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0.1) 10px,
+    transparent 10px,
+    transparent 20px
+  );
+  background-size: 50px 50px;
+  z-index: -1;
+  animation: movingCubes 2s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.skills-list {
+  list-style-type: none;
+  margin-top: 30px;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  gap: 300px; /* Adjusted for responsiveness */
+}
+
+.skills-images {
+  display: flex;
+  justify-content: center;
+  gap: 20px; /* Space between images */
+  flex-wrap: wrap; /* Allows wrapping if needed */
+}
+
+.skills-image {
+  width: 400px;
+  height: 300px;
+  margin-top: 20px;
+  transition: transform 0.3s ease, opacity 0.3s ease; /* Add transition */
+}
+
+.skills-image:hover {
+  transform: scale(1.1); /* Slightly enlarge the image on hover */
+  opacity: 0.9; /* Slightly reduce opacity on hover */
+}
+.skills-certificates-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.surprise-box {
+  width: 300px;
+  height: 100px;
+  background-color: lightslategray;
+  display: flex;
+  color:black;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  transition: all 0.3s ease;
+}
+
+.surprise-box:hover {
+  background-color: #5aafe7; /* Change color on hover */
+}
+
+.skills-certificates {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  width: 150%;
+  flex-wrap: wrap;
+  transition: all 1s cubic-bezier(0.68, -0.55, 0.27, 1.55); /* Spring-like animation */
+}
+
+.certificates {
+  width: 350px;
+  height: 300px;
+  border-radius: 10px;
+  opacity: 0; /* Hidden initially */
+  transform: scale(0); /* Start small */
+  transition: transform 1s ease, opacity 0.5s ease;
+}
+
+.certificates.show {
+  opacity: 1; /* Show images */
+  transform: scale(1); /* Scale up to full size */
+}
+
+.hidden {
+  display: none; /* Hide the certificates section initially */
+}
+
+
+
+
+
+
+
+
+/* Services Section */
+@keyframes northernLights {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+#services {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  text-align: center;
+  padding: 20px;
+
+  /* Northern lights animated background */
+  background: linear-gradient(120deg, rgba(206, 205, 207, 0.4), rgba(51, 45, 49, 0.4), rgba(243, 245, 242, 0.4), rgba(26, 25, 25, 0.4));
+  background-size: 200% 200%;
+  animation: northernLights 15s ease infinite;
+}
+
+#services h2 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+#services h3 {
+  color: solid black;
+}
+
+#services p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+}
+
+.services-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.service-card {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(12, 11, 11, 0.89);
+  padding: 20px;
+  width: 250px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+}
+
+.service-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.service-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.service-card p {
+  font-size: 1rem;
+  color: #555;
+}
+
+/* Hire Me Section */
+#hire-me {
+  display: flex;                  /* Use flexbox for layout */
+  flex-direction: column;         /* Stack items vertically */
+  justify-content: center;        /* Center content vertically */
+  align-items: center;            /* Center content horizontally */
+  background-color: gray;      /* Light background color */
+  color: #343a40;                 /* Dark text color for contrast */
+  padding: 50px;                  /* Add padding around the section */
+  text-align: center;             /* Center the text */
+  border-radius: 10px;            /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  margin: 20px;                   /* Margin around the section */
+  min-height: 80vh;              /* Ensure full viewport height */
+}
+
+#hire-me h2 {
+  font-size: 2.5rem;              /* Large, prominent heading */
+  margin: 0;                      /* Remove default margin */
+  margin-bottom: 20px;            /* Space below the heading */
+  font-family: 'Arial', sans-serif; /* Clean, modern font */
+  color: solid black;             /* Primary color for the heading */
+}
+
+#hire-me p {
+  font-size: 1.2rem;              /* Slightly larger text for readability */
+  line-height: 1.6;               /* Increased line height for readability */
+  color: whitesmoke;                 /* Darker text color */
+  margin: 0;                      /* Remove default margin */
+  margin-bottom: 20px;            /* Space below the paragraph */
+}
+
+.contact-icons {
+  display: flex;                  /* Use flexbox for horizontal layout */
+  gap: 100px;                      /* Space between the icons */
+  margin-top: 20px;               /* Space above the icons */
+}
+
+.contact-icons img {
+  width: 40px;                    /* Size of the icons */
+  height: auto;                   /* Maintain aspect ratio */
+  vertical-align: middle;         /* Align icons vertically */
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 1200px) {
+  nav ul li {
+    margin: 0 15px; /* Reduce space between links */
+  }
+
+  .skills-list {
+    gap: 20px; /* Adjusted space for smaller screens */
+  }
+}
+
+@media (max-width: 992px) {
+  #home {
+    flex-direction: column; /* Stack elements vertically */
+    padding: 20px;
+    text-align: center;
+  }
+
+  #home .text-content {
+    font-size: 24px;
+  }
+
+  .card-container {
+    flex-direction: column; /* Stack cards vertically */
+    align-items: center;
+    height: auto; /* Adjust height for stacking */
+  }
+
+  .content-card {
+    max-width: 90%; /* Adjust width for smaller screens */
+    text-align: center; /* Center text in card */
+  }
+
+  .skills-list {
+    flex-direction: column; /* Stack items vertically */
+    gap: 10px; /* Reduce gap for smaller screens */
+  }
+
+  .skills-image {
+    width: 150px; /* Adjust image width for smaller screens */
+  }
+}
+
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column; /* Stack navigation items vertically */
+  }
+
+  nav ul li {
+    margin: 10px 0; /* Space between links */
+  }
+
+  #services {
+    padding: 10px;
+  }
+
+  #services h2 {
+    font-size: 2rem;
+  }
+
+  #services p {
+    font-size: 1rem;
+  }
+
+  .service-card {
+    width: 100%; /* Full width for smaller screens */
+    margin: 10px 0; /* Margin for spacing */
+  }
+
+  .skills-image {
+    width: 100%; /* Full width for images on smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  #home .text-content {
+    font-size: 18px;
+  }
+
+  .content-card {
+    padding: 15px; /* Adjust padding for smaller screens */
+    margin: 10px; /* Adjust margin for smaller screens */
+  }
+
+  .skills-image {
+    width: 100%; /* Full width for very small screens */
+    height: auto; /* Adjust height for images */
+  }
+}
+/* Media Queries for Responsiveness */
+@media (max-width: 1200px) {
+  .heading {
+    font-size: 2rem;        /* Adjust font size for smaller screens */
+    left: 20px;             /* Adjust position */
+    top: 20px;              /* Adjust position */
+  }
+
+  .content-wrapper {
+    gap: 20px;              /* Increase gap for smaller screens */
+  }
+
+  .IMG {
+    width: 250px;           /* Adjust image width */
+    height: 250px;          /* Adjust image height */
+  }
+
+  .card-container {
+    margin-left: 0;         /* Remove margin-left on smaller screens */
+    margin-bottom: 30px;    /* Adjust margin-bottom */
+  }
+}
+
+@media (max-width: 992px) {
+  #about {
+    flex-direction: column; /* Stack items vertically */
+    text-align: center;     /* Center text */
+    padding: 20px;          /* Adjust padding */
+  }
+
+  .heading {
+    font-size: 1.8rem;      /* Adjust font size */
+    left: 0;                /* Reset position */
+    top: 0;                 /* Reset position */
+    text-align: center;     /* Center heading text */
+  }
+
+  .content-wrapper {
+    flex-direction: column; /* Stack items vertically */
+    align-items: center;    /* Center items */
+    gap: 20px;              /* Increase gap */
+  }
+
+  .IMG {
+    width: 200px;           /* Adjust image width */
+    height: 200px;          /* Adjust image height */
+    margin-left: 0;         /* Remove margin-left */
+    margin-top: 0;          /* Remove margin-top */
+  }
+
+  .card-container {
+    margin-left: 0;         /* Remove margin-left */
+    margin-bottom: 20px;    /* Adjust margin-bottom */
+    width: 100%;            /* Full width for container */
+    align-items: center;    /* Center items */
+  }
+}
+
+@media (max-width: 768px) {
+  .heading {
+    font-size: 1.5rem;      /* Further reduce font size */
+    top: 10px;              /* Adjust top position */
+    left: 10px;             /* Adjust left position */
+  }
+
+  .IMG {
+    width: 150px;           /* Further reduce image width */
+    height: 150px;          /* Further reduce image height */
+  }
+
+  .card-container {
+    width: 100%;            /* Full width for card container */
+  }
+}
+
+@media (max-width: 480px) {
+  .heading {
+    font-size: 1.2rem;      /* Reduce font size for very small screens */
+    top: 5px;               /* Adjust top position */
+    left: 5px;              /* Adjust left position */
+  }
+
+  .IMG {
+    width: 100px;           /* Reduce image width */
+    height: 100px;          /* Reduce image height */
+  }
+
+  .content-card {
+    padding: 15px;          /* Adjust padding */
+    margin: 10px;           /* Adjust margin */
+  }
+}
